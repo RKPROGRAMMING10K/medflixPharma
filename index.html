@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="css/meanmenu.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
+
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
     </head>
     <body>
         <!-- header -->
@@ -116,7 +118,7 @@
                                         <h2 data-animation="fadeInUp" data-delay=".4s">Medflix Pharma</h2>
                                         <p data-animation="fadeInUp" data-delay=".6s">Inspiring a healthier tomorrow, Medflix Pharma lights the path to wellness, where innovation and compassion converge to transform lives.</p>
                                         <div class="slider-btn mt-25">                                          
-                                            <a href="#" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Learn More <i class="fas fa-chevron-right"></i></a>					
+                                            <a href="contact.html" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Contact Now <i class="fas fa-chevron-right"></i></a>					
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +155,7 @@
                                     <img src="img/icon/sr-icon01.png" alt="img">
                                 </div>
                                 <div class="second-services-content">
-                                    <h5>Fast Delivery</h5>       
+                                    <h5>Affordable price & Accessible medicines</h5>       
                                     
                                 </div>
 								
@@ -228,7 +230,7 @@
                                </p>
                                
                                <div class="slider-btn mt-30">                                          
-                                            <a href="#" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Read More <i class="fas fa-chevron-right"></i></a>					
+                                            <a href="about.html" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Read More <i class="fas fa-chevron-right"></i></a>					
                                         </div>
                             </div>
                         </div>
@@ -416,30 +418,32 @@
 							<div class="row">
                             <div class="col-lg-6">
                                 <div class="contact-field p-relative c-name mb-20">                                    
-                                    <input type="text" placeholder="First Name">
+                                    <input type="text" placeholder="Enter Name" id="name">
                                 </div>                               
                             </div>
                                 <div class="col-lg-6">
                                 <div class="contact-field p-relative c-name mb-20">                                    
-                                    <input type="text" placeholder="Last Name">
+                                    <input type="phone" placeholder="Enter phone no." id="contact">
                                 </div>                               
                             </div>
 							<div class="col-lg-12">                               
                                 <div class="contact-field p-relative c-email mb-20">                                    
-                                    <input type="text" placeholder="Write here your email">
+                                    <input type="text" placeholder="Write here your email" id="email">
                                 </div>                                
                             </div>
 							<div class="col-lg-12">                               
                                 <div class="contact-field p-relative c-subject mb-20">                                   
-                                    <input type="text" placeholder="I would like to discuss">
+                                    <input type="text" placeholder="I would like to discuss" id="subject">
                                 </div>
                             </div>							
                             <div class="col-lg-12">
                                 <div class="contact-field p-relative c-message mb-45">                                  
                                     <textarea name="message" id="message" cols="30" rows="10" placeholder="Write comments"></textarea>
                                 </div>
-                                <div class="slider-btn">                                          
-                                            <a href="#" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Send Message</a>					
+                                <div class="slider-btn">                              
+                                    <!-- <button type="button" onclick="sendEmail()">Send Message</button> -->
+                                    
+                                            <button type="button" onclick="sendEmail();" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Send Message</button>					
                                         </div>                             
                             </div>
                             </div>
@@ -560,6 +564,40 @@
         <!-- footer-end -->
 
 
+
+        <!-- Send mail contact form  -->
+
+
+        <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
+
+        
+
+       <script>
+        function sendEmail(){
+            let name = document.getElementById('name');
+            let email = document.getElementById('email');
+            let phone = document.getElementById('contact');
+            let subject = document.getElementById('subject');
+            let msg = document.getElementById('message');
+            let body = "Name: "+ name + "<br/> Email: " + email + "<br/> Contact No.: " + phone + "<br/> Subject: " + subject + "<br/> Message: " + message;
+
+
+            Email.send({
+                SecureToken : "0e88e1b7-5fb3-43b1-b56b-5c326332d17e",
+                To : 'them@website.com',
+                From : "technicalrk078@gmail.com",
+                Subject : subject,
+                Body : body
+            }).then(
+                message = alert("Thanks For Sendig a message. We will Contact you soon!")
+            );
+            
+            }
+       </script>
+
+ <!-- Send mail contact form  -->
+
 		<!-- JS here -->
         	<!-- JS here -->
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
@@ -585,6 +623,6 @@
 
 
 
-        <!-- <script type='text/javascript' src='//impressexaltsculptor.com/a4/5c/58/a45c5802b676861dee13d10b92abe2ff.js'></script> -->
+        <script type='text/javascript' src='//impressexaltsculptor.com/a4/5c/58/a45c5802b676861dee13d10b92abe2ff.js'></script>
     </body>
 </html>
